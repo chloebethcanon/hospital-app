@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   get '/' => 'pages#index'
 
   get '/events' => 'events#index'
+  get '/events/new' => 'events#new'
+  post '/events' => 'events#create'
+  get '/events/:id' => 'events#show'
+  get '/events/:id/edit' => 'events#edit'
+  patch '/events/:id' => 'events#update'
+  delete '/events/:id' => 'events#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
