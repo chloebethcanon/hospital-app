@@ -17,8 +17,9 @@ class EventsController < ApplicationController
       category: params[:category],
       description: params[:description],
       capacity: params[:capacity],
-      private: params[:private],
+      is_private: params[:is_private],
       )
+    redirect_to '/events'
   end
 
   def show

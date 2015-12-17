@@ -1,0 +1,40 @@
+<h1>Add new event:</h1>
+<%= form_tag '/events' , method: :post do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div>
+    <%= label_tag :date %>
+    <%= text_field_tag :date %>
+  </div>
+  <div>
+    <%= label_tag :start_time %>
+    <%= text_field_tag :start_time %>
+  </div>
+  <div>
+    <%= label_tag :end_time %>
+    <%= text_field_tag :end_time %>
+  </div>
+  <div>
+    <%= label_tag :location %>
+    <%= text_field_tag :location %>
+  </div>
+  <div>
+    <%= label_tag :category %>
+    <%= text_field_tag :category %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div><div>
+    <%= label_tag :capacity %>
+    <%= text_field_tag :capacity %>
+  </div><div>
+    <%= label_tag :is_private %>
+    <%= text_field_tag :is_private %>
+  </div>
+  <div>
+    <%= button_tag 'Submit', class: "btn btn_default" %>
+  </div>
+<% end %>
