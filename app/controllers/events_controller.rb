@@ -8,6 +8,17 @@ class EventsController < ApplicationController
   end
 
   def create
+    @event = Event.create(
+      title: params[:title],
+      date: params[:date],
+      start_time: params[:start_time],
+      end_time: params[:end_time],
+      location: params[:location],
+      category: params[:category],
+      description: params[:description],
+      capacity: params[:capacity],
+      private: params[:private],
+      )
   end
 
   def show
