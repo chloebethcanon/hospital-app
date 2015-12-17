@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
 
   def index
-    if current_user.admin
+    # if current_user.admin
       @events = Event.all
-    else
-      @events = current_user.events
-    end
+    # else
+    #   @events = current_user.events
+    # end
   end
 
   def new
