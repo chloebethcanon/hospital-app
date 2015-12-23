@@ -1,6 +1,8 @@
-<h1>Hospital App</h1>
+<h1>User Home</h1>
 
-<a href="/users/sign_up">Sign Up</a>
-<a href="/users/sign_in">Sign In</a>
-<%= link_to "Sign Out", "/users/sign_out", method: :delete %>
+<ul>
+  <% @user_events.each do |user_event| %>
+    <li><%= user_event.title %></li> 
+  <% end %>
+</ul>
 
