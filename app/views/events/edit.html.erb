@@ -1,0 +1,40 @@
+<h1>Update event:</h1>
+<%= form_tag "/events/#{@event.id}" , method: :patch do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, @event.title %>
+  </div>
+  <div>
+    <%= label_tag :date %>
+    <%= text_field_tag :date, @event.date %>
+  </div>
+  <div>
+    <%= label_tag :start_time %>
+    <%= text_field_tag :start_time, @event.start_time %>
+  </div>
+  <div>
+    <%= label_tag :end_time %>
+    <%= text_field_tag :end_time, @event.end_time %>
+  </div>
+  <div>
+    <%= label_tag :location %>
+    <%= text_field_tag :location, @event.location %>
+  </div>
+  <div>
+    <%= label_tag :category %>
+    <%= text_field_tag :category, @event.category %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description, @event.description %>
+  </div><div>
+    <%= label_tag :capacity %>
+    <%= text_field_tag :capacity, @event.capacity %>
+  </div><div>
+    <%= label_tag :is_private %>
+    <%= text_field_tag :is_private, @event.is_private %>
+  </div>
+  <div>
+    <%= button_tag 'Submit', class: "btn btn_default" %>
+  </div>
+<% end %>
