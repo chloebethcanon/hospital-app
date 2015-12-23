@@ -1,1 +1,16 @@
 <h1><%= @event.title %></h1>
+<ul>
+  <li>Date: <%= @event.date %></li>
+  <li>Time: <%= @event.start_time %></li>
+  <li>Location: <%= @event.location %></li>
+  <li>Description: <%= @event.description %></li>
+</ul>
+
+<% form_tag 'user_events', method: :post do %>
+  <<div>
+    <%= hidden_field_tag :event_id, @event.id, class "form-control" %>
+  </div>
+  <div>
+    <%= button_tag "Sign Up!", class: "btn btn_default" %>
+  </div>
+<% end %>
