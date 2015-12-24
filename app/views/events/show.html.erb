@@ -6,15 +6,6 @@
   <li>Description: <%= @event.description %></li>
 </ul>
 
-<%= form_tag '/user_events', method: :post do %>
-  <div>
-    <%= hidden_field_tag :event_id, @event.id, class: "form-control" %>
-  </div>
-  <div>
-    <%= button_tag "Sign Up!", class: "btn btn_default" %>
-  </div>
-<% end %>
-
 <% if current_user && current_user.admin %>
   <%= button_to "Edit", "/events/#{@event.id}/edit", class: "btn btn_default", method: :get %>
   <%= button_to "Delete", "/events/#{@event.id}", class: "btn btn_default", method: :delete %>
@@ -25,9 +16,20 @@
       <li><%= user.full_name %></li>
     <% end %>
   </ul>
-
-
-
 <% end %>
+
+<% if @current_user_registered %>
+  <%= button_to "Unregister", "/user_events/#{@user_event.id}", class: "btn btn_default", method: :delete %>
+<% else %>  
+  <%= form_tag '/user_events', method: :post do %>
+    <div>
+      <%= hidden_field_tag :event_id, @event.id, class: "form-control" %>
+    </div>
+    <div>
+      <%= button_tag "Sign Up!", class: "btn btn_default" %>
+    </div>
+  <% end %>  
+<% end %>
+
 
 <%= button_to "All Events", "/events", class: "btn btn_default", method: :get %>

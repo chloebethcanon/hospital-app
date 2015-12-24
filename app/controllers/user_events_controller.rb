@@ -9,6 +9,10 @@ class UserEventsController < ApplicationController
   end
 
   def destroy
+    @user_event = UserEvent.find_by(id: params[:id])
+    @user_event.delete
+    flash[:success] = "You have successfully unregistered"
+    redirect_to "/pages"
   end
 
 end

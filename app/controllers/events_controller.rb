@@ -28,6 +28,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    if current_user && Event.find_by(id: params[:id]) == current_user.events.find_by(id: params[:id]) 
+      @current_user_registered = true
+      @user_event = UserEvent.find_by(event_id: @event.id, user_id: current_user.id)
+    else
+      @current_user_registered = false
+    end  
   end
 
   def edit
