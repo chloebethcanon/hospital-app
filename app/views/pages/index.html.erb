@@ -1,8 +1,19 @@
 <h1>User Home</h1>
 
+<h4>My Events</h4>
 <ul>
   <% @user_events.each do |user_event| %>
     <li><%= user_event.title %></li> 
   <% end %>
 </ul>
+
+<h4>All Events</h4>
+<ul>
+  <% @all_events.each do |event| %>
+    <a href="/events/<%= event.id %>">
+      <li><%= event.title %></li></a> 
+  <% end %>
+</ul>
+
+<%= link_to "Sign Out", "/users/sign_out", method: :delete %>
 

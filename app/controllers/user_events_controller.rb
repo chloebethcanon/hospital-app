@@ -5,7 +5,10 @@ class UserEventsController < ApplicationController
       user_id: current_user.id,
       event_id: params[:event_id]
       )
-    redirect_to "/events"
+    redirect_to "/pages"
+  end
+
+  def destroy
   end
 
 end
