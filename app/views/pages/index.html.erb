@@ -1,12 +1,22 @@
 <h1>User Home</h1>
 
 <h4>My Events</h4>
-<ul>
-  <% @user_events.each do |user_event| %>
-    <a href="/events/<%= user_event.id %>">
-      <li><%= user_event.title %></li></a> 
-  <% end %>
-</ul>
+
+<% if current_user.admin %>
+  <ul>
+    <% @owned_events.each do |owned_event| %>
+      <a href="/events/<%= owned_event.id %>">
+        <li><%= owned_event.title %></li></a> 
+    <% end %>
+  </ul>
+<% else %>
+  <ul>
+    <% @user_events.each do |user_event| %>
+      <a href="/events/<%= user_event.id %>">
+        <li><%= user_event.title %></li></a> 
+    <% end %>
+  </ul>
+<% end %>
 
 <h4>All Events</h4>
 <ul>
