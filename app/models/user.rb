@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :roles, through: :user_roles
   has_many :user_events
   has_many :events, through: :user_events
+  has_many :created_events, class_name: "Event", foreign_key: "user_id"
 
   def full_name
     "#{first_name} #{last_name}"
