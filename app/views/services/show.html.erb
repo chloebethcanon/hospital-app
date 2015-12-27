@@ -1,1 +1,17 @@
-show.html.erb
+<h1><%= @service.title %></h1>
+<p><%= @service.description %></p>
+
+<% if @current_user_opt_in %>
+  <%= button_to "Opt Out", "/user_services/#{@user_service.id}", class: "btn btn_default", method: :delete %>
+<% else %>
+  <%= form_tag '/user_services', method: :post do %>
+    <div>
+      <%= hidden_field_tag :service_id, @service.id, class: "form-control" %>
+    </div>
+    <div>
+      <%= button_tag "Opt In", class: "btn btn_default" %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= button_to "All Services", "/services", class: "btn btn_default", method: :get %>
