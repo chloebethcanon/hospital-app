@@ -27,9 +27,21 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @service = Service.find_by(id: params[:id])
   end
 
   def update
+    @service = Service.find_by(id: params[:id])
+    if @service.update(
+      title: params[:title],
+      category: params[:category],
+      description: params[:description]
+      )
+      flash[:success] = "Service was successfully updated!"
+      redirect_to "/services/#{@service.id}"
+    else
+      render :edit
+    end
   end
 
   def destroy

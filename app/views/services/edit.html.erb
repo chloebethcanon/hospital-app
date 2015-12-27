@@ -1,1 +1,18 @@
-edit.html.erb
+<h1>Update service:</h1>
+<%= form_tag "/services/#{@service.id}" , method: :patch do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, @service.title %>
+  </div>
+  <div>
+    <%= label_tag :category %>
+    <%= text_field_tag :category, @service.category %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description, @service.description %>
+  </div>
+  <div>
+    <%= button_tag 'Submit', class: "btn btn_default" %>
+  </div>
+<% end %>
