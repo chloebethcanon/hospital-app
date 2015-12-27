@@ -20,6 +20,10 @@
     <p> Welcome <%= current_user.email %>!</p>
   <% end %>
 
+
+  <%= button_to "All Events", "/events", class: "btn btn_default", method: :get %>
+  <%= button_to "All Services", "/services", class: "btn btn_default", method: :get %>
+
   <%= yield %>
 </div>
 
