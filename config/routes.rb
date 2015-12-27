@@ -33,6 +33,11 @@ Rails.application.routes.draw do
   patch '/services/:id' => 'services#update'
   delete '/services/:id' => 'services#destroy'
 
+  post '/user_services' => 'user_services#create'
+  get '/user_services/:id/edit' => 'user_services#edit'
+  patch '/user_services/:id' => 'user_services#update'
+  delete '/user_services/:id' => 'user_services#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
