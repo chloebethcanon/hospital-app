@@ -1,6 +1,21 @@
 <h1><%= @service.title %></h1>
 <p><%= @service.description %></p>
 
+<% if current_user.admin && current_user.id == @service.user_id %>
+  <%= button_to "Edit", "/services/#{@service.id}/edit", class: "btn btn_default", method: :get %>
+  <%= button_to "Delete", "/services/#{@service.id}", class: "btn btn_default", method: :delete %>
+
+  <p>List of opt-in patients:</p>
+  <table class="table table-striped">
+    <% @service.users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.phone_number %></td>
+        <td><%= mail_to user.email, "#{user.email}" %></td>
+      </tr>
+    <% end %>
+<% end %>
+
 <% if @current_user_opt_in %>
   <%= button_to "Opt Out", "/user_services/#{@user_service.id}", class: "btn btn_default", method: :delete %>
 <% else %>

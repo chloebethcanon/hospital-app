@@ -45,6 +45,10 @@ class ServicesController < ApplicationController
   end
 
   def destroy
+    @service = Service.find_by(id: params[:id])
+    @service.delete
+    flash[:success] = "Service was successfully deleted!"
+    redirect_to "/services"
   end
   
 end
