@@ -1,1 +1,18 @@
-new.html.erb
+<h1>Add new service:</h1>
+<%= form_tag '/services' , method: :post do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div>
+    <%= label_tag :category %>
+    <%= text_field_tag :category %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+  <div>
+    <%= button_tag 'Submit', class: "btn btn_default" %>
+  </div>
+<% end %>
