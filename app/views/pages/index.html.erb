@@ -4,16 +4,32 @@
 
 <% if current_user.admin %>
   <ul>
+    <p>Events:</p>
     <% @owned_events.each do |owned_event| %>
       <a href="/events/<%= owned_event.id %>">
         <li><%= owned_event.title %></li></a> 
     <% end %>
   </ul>
+  <ul>
+    <p>Services:</p>
+    <% @managed_services.each do |managed_service| %>
+      <a href="/services/<%= managed_service.id %>">
+        <li><%= managed_service.title %></li></a> 
+    <% end %>
+  </ul>
 <% else %>
   <ul>
+    <p>Events:</p>
     <% @user_events.each do |user_event| %>
       <a href="/events/<%= user_event.id %>">
         <li><%= user_event.title %></li></a> 
+    <% end %>
+  </ul>
+  <ul>
+    <p>Services:</p>
+    <% @user_events.each do |user_service| %>
+      <a href="/services/<%= user_service.id %>">
+        <li><%= user_service.title %></li></a> 
     <% end %>
   </ul>
 <% end %>
@@ -23,6 +39,14 @@
   <% @all_events.each do |event| %>
     <a href="/events/<%= event.id %>">
       <li><%= event.title %></li></a> 
+  <% end %>
+</ul>
+
+<h4>All Services</h4>
+<ul>
+  <% @all_services.each do |service| %>
+    <a href="/services/<%= service.id %>">
+      <li><%= service.title %></li></a> 
   <% end %>
 </ul>
 
