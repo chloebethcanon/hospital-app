@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :created_events, class_name: "Event", foreign_key: "user_id"
   has_many :user_services
   has_many :services, through: :user_services
+  has_many :managed_services, class_name: "Service", foreign_key: "user_id"
 
   def full_name
     "#{first_name} #{last_name}"
