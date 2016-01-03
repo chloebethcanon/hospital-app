@@ -17,3 +17,63 @@
     </div>
   <% end %>
 <% end %>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-lg-4">
+        <div class="ibox">
+          <div class="ibox-title">
+            <!-- <span class="label label-primary pull-right">NEW</span> -->
+            <a href="/events/<%= event.id %>">
+              <h5><%= event.title %></h5></a>
+          </div>
+          <div class="ibox-content">
+            <div class="team-members">
+              <a href="#"><img alt="member" class="img-circle" src="img/a1.jpg"></a>
+              <a href="#"><img alt="member" class="img-circle" src="img/a2.jpg"></a>
+              <a href="#"><img alt="member" class="img-circle" src="img/a3.jpg"></a>
+              <a href="#"><img alt="member" class="img-circle" src="img/a5.jpg"></a>
+              <a href="#"><img alt="member" class="img-circle" src="img/a6.jpg"></a>
+            </div>
+            <div class="row  m-t-sm">
+              <div class="col-sm-8">
+                <h4><%= event.readable_date(event.date) %></h4>
+              </div>
+              <div class="col-sm-4 text-right">
+                <h4><%= event.readable_time(event.start_time) %></h4>
+              </div>
+            </div>
+            <p><%= event.description %></p>
+            <div>
+              <span>Status of current project:</span>
+              <div class="stat-percent">48%</div>
+              <div class="progress progress-mini">
+                <div style="width: 48%;" class="progress-bar"></div>
+              </div>
+            </div>
+            <div class="row  m-t-sm">
+              <div class="col-sm-6">
+                <div class="font-bold">CAPACITY</div>
+                <%= event.capacity %>
+              </div>
+              <div class="col-sm-6 text-right">
+                <%= form_tag '/user_events', method: :post do %>
+                  <div>
+                    <%= hidden_field_tag :event_id, event.id, class: "form-control" %>
+                  </div>
+                  <div>
+                    <%= button_tag "RSVP", class: "btn btn_default font-bold" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>    
+  </div>    
+</div>
