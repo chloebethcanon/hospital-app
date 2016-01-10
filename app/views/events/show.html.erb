@@ -21,7 +21,7 @@
     <% end %>
 <% end %>
 
-<% if @current_user_registered %>
+<% if @current_user_registered && current_user.id %>
   <%= button_to "Unregister", "/user_events/#{@user_event.id}", class: "btn btn_default", method: :delete %>
 <% else %>  
   <%= form_tag '/user_events', method: :post do %>
