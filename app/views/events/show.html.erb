@@ -29,7 +29,9 @@
       <%= hidden_field_tag :event_id, @event.id, class: "form-control" %>
     </div>
     <div>
-      <%= button_tag "Sign Up!", class: "btn btn_default" %>
+      <% if @event.user_id != current_user.id %>
+        <%= button_tag "Sign Up!", class: "btn btn_default" %>
+      <% end %>  
     </div>
   <% end %>  
 <% end %>

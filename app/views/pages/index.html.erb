@@ -27,7 +27,7 @@
   </ul>
   <ul>
     <p>Services:</p>
-    <% @user_events.each do |user_service| %>
+    <% @user_services.each do |user_service| %>
       <a href="/services/<%= user_service.id %>">
         <li><%= user_service.title %></li></a> 
     <% end %>
