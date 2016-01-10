@@ -10,7 +10,7 @@ class UserServicesController < ApplicationController
 
   def destroy
     @user_service = UserService.find_by(id: params[:id])
-    @user_event.delete
+    @user_service.delete
     flash[:success] = "You have successfully opted-out of this service."
     redirect_to "/pages"
   end
