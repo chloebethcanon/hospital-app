@@ -16,4 +16,17 @@ class Event < ActiveRecord::Base
       time.strftime("%l:%M %p")
     end
   end
+
+  def user_registered?(user)
+    users.include?(user)
+  end
+
+  def get_user_event_id(user)
+    user_event = UserEvent.find_by(event_id: id, user_id: user.id)
+    if user_event
+      user_event.id
+    else
+      nil
+    end
+  end
 end

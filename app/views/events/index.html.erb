@@ -13,7 +13,11 @@
       <%= hidden_field_tag :event_id, event.id, class: "form-control" %>
     </div>
     <div>
-      <%= button_tag "Sign Up!", class: "btn btn_default" %>
+      <% if !event.user_registered?(current_user) %>
+        <%= button_tag "Sign Up!", class: "btn btn_default" %>
+      <% else %>
+        <%= link_to "Unregister", "/user_events/#{event.get_user_event_id(current_user)}", method: :delete, class: "btn btn-warning", role: "button" %>
+      <% end %>    
     </div>
   <% end %>
 <% end %>
@@ -66,7 +70,11 @@
                     <%= hidden_field_tag :event_id, event.id, class: "form-control" %>
                   </div>
                   <div>
-                    <%= button_tag "RSVP", class: "btn btn_default font-bold" %>
+                    <% if !event.user_registered?(current_user) %>
+                      <%= button_tag "Register", class: "btn btn_default font-bold" %>
+                    <% else %>
+                      <%= link_to "Unregister", "/user_events/#{event.get_user_event_id(current_user)}", method: :delete, class: "btn btn-warning", role: "button" %>
+                    <% end %>  
                   </div>
                 <% end %>
               </div>

@@ -21,20 +21,17 @@
     <% end %>
 <% end %>
 
-<% if @current_user_registered && current_user.id %>
-  <%= button_to "Unregister", "/user_events/#{@user_event.id}", class: "btn btn_default", method: :delete %>
-<% else %>  
-  <%= form_tag '/user_events', method: :post do %>
-    <div>
-      <%= hidden_field_tag :event_id, @event.id, class: "form-control" %>
-    </div>
-    <div>
-      <% if @event.user_id != current_user.id %>
-        <%= button_tag "Sign Up!", class: "btn btn_default" %>
-      <% end %>  
-    </div>
-  <% end %>  
+<%= form_tag '/user_events', method: :post do %>
+  <div>
+    <%= hidden_field_tag :event_id, @event.id, class: "form-control" %>
+  </div>
+  <div>
+    <% if !@event.user_registered?(current_user) %>
+      <%= button_tag "Register", class: "btn btn_default font-bold" %>
+    <% else %>
+      <%= link_to "Unregister", "/user_events/#{@event.get_user_event_id(current_user)}", method: :delete, class: "btn btn-warning", role: "button" %>
+    <% end %>  
+  </div>
 <% end %>
-
 
 <%= button_to "All Events", "/events", class: "btn btn_default", method: :get %>
