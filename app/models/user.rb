@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :managed_services, class_name: "Service", foreign_key: "user_id"
   has_many :sent_messages, class_name: "Message", foreign_key: "user_id"
 
+  has_many :message_recipients
+  has_many :received_messages, through: :message_recipients, source: :message
+
   def full_name
     "#{first_name} #{last_name}"
   end
