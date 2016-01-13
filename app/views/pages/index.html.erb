@@ -53,6 +53,59 @@
 <%= link_to "Sign Out", "/users/sign_out", method: :delete %>
 
 
+
+
+<div class="row m-t-lg">
+  <div class="col-lg-6">
+    <div class="ibox float-e-margins">
+
+      <div class="ibox-content">
+
+        <div>
+          <div class="chat-activity-list">
+
+            <div class="chat-element ">
+              <a href="#" class="pull-left">
+                <img alt="image" class="img-circle" src="img/a2.jpg">
+              </a>
+              <div class="media-body ">
+                <small class="pull-right">2h ago</small>
+                <strong>New Message</strong>
+                <p class="m-b-xs">
+                  ####
+                </p>
+                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+          
+          <%= form_tag '/messages', method: :post do %>
+            <div class="chat-form">
+              <form role="form">
+                <div class="form-group">
+                  <textarea class="form-control" placeholder="Message">
+                    <%= text_field_tag :body %>
+                  </textarea>
+                </div>
+                <div class="text-right">
+                  <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>Send message</strong></button>
+                </div>
+              </form>
+            </div>
+          <% end %>
+
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <div class="col-md-8">
 
   <div class="ibox float-e-margins">

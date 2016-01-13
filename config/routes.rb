@@ -38,6 +38,14 @@ Rails.application.routes.draw do
   patch '/user_services/:id' => 'user_services#update'
   delete '/user_services/:id' => 'user_services#destroy'
 
+  get '/messages' => 'messages#index'
+  get '/messages/new' => 'messages#new'
+  post '/messages' => 'messages#create'
+  get '/messages/:id' => 'messages#show'
+  get '/messages/:id/edit' => 'messages#edit'
+  patch '/messages/:id' => 'messages#update'
+  delete '/messages/:id' => 'messages#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

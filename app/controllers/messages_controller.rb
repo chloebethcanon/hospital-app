@@ -8,6 +8,10 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @message = Message.create(
+      subject: params[:subject],
+      body: params[:body]
+      )
   end
 
   def show
