@@ -2,6 +2,12 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.all
+    @sent_messages = current_user.sent_messages
+    @received_messages = current_user.received_messages
+
+    messages = @sent_messages.to_a + @received_messages.to_a
+    messages = messages.sort! { |a,b| a.created_at <=> b.created_at }
+    @messages = messages.reverse
   end
 
   def new
