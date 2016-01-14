@@ -1,0 +1,64 @@
+<div class="col-md-8">
+
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+
+      <h5>Feed</h5>
+      <div class="ibox-tools">
+        <a class="collapse-link">
+          <i class="fa fa-chevron-up"></i>
+        </a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="fa fa-wrench"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+          <li><a href="#">Config option 1</a>
+          </li>
+          <li><a href="#">Config option 2</a>
+          </li>
+        </ul>
+        <a class="close-link">
+          <i class="fa fa-times"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="ibox-content">
+
+      <div>
+        <div class="feed-activity-list">
+
+          <% @messages.each do |message| %>
+            <div class="feed-element">
+              <a href="#" class="pull-left">
+                <img alt="image" class="img-circle" src="img/a2.jpg">
+              </a>
+              <div class="media-body ">
+                <small class="pull-right">2h ago</small>
+                <strong><%= message.sender.full_name %></strong> posted a message. <br>
+                <small class="text-muted"><%= message.readable_date %>  •  <%= message.readable_time %></small>
+                <div class="well">
+                  <%= message.body %>
+                </div>
+                <div class="pull-right">
+                  <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                  <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
+                  <a class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Message</a>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+
+        <button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

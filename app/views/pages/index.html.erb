@@ -84,17 +84,30 @@
           <%= form_tag '/messages', method: :post do %>
             <div class="chat-form">
               <form role="form">
+                <div>
+                  <%= text_field_tag :email, nil, class: "form-control", placeholder: "Recipient Email" %>
+                </div>
                 <div class="form-group">
-                  <textarea class="form-control" placeholder="Message">
-                    <%= text_field_tag :body %>
-                  </textarea>
+                  <%= text_field_tag :body, nil, class: "form-control", placeholder: "Message" %>
                 </div>
                 <div class="text-right">
-                  <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>Send message</strong></button>
+                  <%= button_tag "Send Message", class: "btn btn-sm btn-primary m-t-n-xs" %>
                 </div>
               </form>
             </div>
           <% end %>
+
+          <div class="chat-form">
+            <form role="form">
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Message"></textarea>
+              </div>
+              <div class="text-right">
+                <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>Send message</strong></button>
+              </div>
+            </form>
+          </div>
+
 
       </div>
     
@@ -147,6 +160,9 @@
                 <small class="text-muted"><%= message.readable_date %>  •  <%= message.readable_time %></small>
                 <div class="well">
                   <%= message.body %>
+                </div>
+                <div class="pull-left">
+                  <%= button_to "Delete", "/messages/#{message.id}", class: "btn btn-xs btn-warning", method: :delete %> 
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
