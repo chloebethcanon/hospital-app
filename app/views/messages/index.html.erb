@@ -53,7 +53,7 @@
             <% @messages.each do |message| %>
               <div class="feed-element">
                 <a href="#" class="pull-left">
-                  <img alt="image" class="img-circle" src="img/a2.jpg">
+                  <img alt="image" class="img-circle" src="<%= message.sender.avatar_url %>">
                 </a>
                 <div class="media-body ">
                   <small class="pull-right">2h ago</small>
