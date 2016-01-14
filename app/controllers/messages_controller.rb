@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
   def destroy
     @message = Message.find_by(id: params[:id])
     @message.delete
-    MessageRecipient.where(message_id: params[:id])
+    MessageRecipient.where(message_id: params[:id]).destroy_all
     redirect_to "/pages"
   end
   

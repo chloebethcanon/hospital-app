@@ -7,10 +7,10 @@ class PagesController < ApplicationController
     @all_services = Service.all
     @managed_services = current_user.managed_services
     @user_services = current_user.services
-    sent_messages = current_user.sent_messages
-    received_messages = current_user.received_messages
+    @sent_messages = current_user.sent_messages
+    @received_messages = current_user.received_messages
 
-    messages = sent_messages.to_a + received_messages.to_a
+    messages = @sent_messages.to_a + @received_messages.to_a
     messages = messages.sort! { |a,b| a.created_at <=> b.created_at }
     @messages = messages.reverse
     
