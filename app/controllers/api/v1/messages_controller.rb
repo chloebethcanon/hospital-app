@@ -47,6 +47,7 @@ class Api::V1::MessagesController < ApplicationController
     @message = Message.find_by(id: params[:id])
     @message.delete
     MessageRecipient.where(message_id: params[:id]).destroy_all
+    render json: {message: "success!"}
   end
   
 end
