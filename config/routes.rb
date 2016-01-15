@@ -46,6 +46,15 @@ Rails.application.routes.draw do
   patch '/messages/:id' => 'messages#update'
   delete '/messages/:id' => 'messages#destroy'
 
+  namespace :api do
+    namespace :v1 do
+      get '/messages' => 'messages#index'
+      post '/messages' => 'messages#create'
+      get '/messages/:id' => 'messages#show'
+      delete '/messages/:id' => 'messages#destroy'
+    end
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
