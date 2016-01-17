@@ -1,0 +1,10 @@
+json.id event.id
+json.title event.title
+json.date event.date
+json.start_time event.start_time
+json.end_time event.end_time
+json.location event.location
+json.description event.description
+json.capacity event.capacity
+json.is_private event.is_private
+json.event_owner event.user.full_name

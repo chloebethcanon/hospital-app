@@ -6,8 +6,7 @@
         <div class="col-lg-12">
           <div class="wrapper wrapper-content animated fadeInUp">
             <ul class="notes">
-              <div ng-repeat="received_message in received_messages">
-                <li>
+                <li ng-repeat="received_message in received_messages">
                   <div>
                     <small>{{ received_message.readable_date }}  •  {{ received_message.readable_time }}</small>
                     <h4>{{ received_message.sender_full_name }}</h4>
@@ -15,7 +14,6 @@
                     <a ng-click="deleteMessage(received_message)" href="javascript:void(0)"><i class="fa fa-trash-o "></i></a>
                   </div>
                 </li>
-              </div>
             </ul>
           </div>  
         </div>

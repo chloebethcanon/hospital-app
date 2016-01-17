@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
     messages = @sent_messages.to_a + @received_messages.to_a
     messages = messages.sort! { |a,b| a.created_at <=> b.created_at }
-    @messages = messages.reverse
+    @messages = messages.reverse[0...5]
     
   end
 

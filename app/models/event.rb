@@ -17,6 +17,12 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def calendar_date(date)
+    if date
+      date.strftime("%Y-%m-%d")
+    end
+  end
+
   def user_registered?(user)
     users.include?(user)
   end

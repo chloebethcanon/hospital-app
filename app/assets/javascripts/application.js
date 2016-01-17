@@ -16,5 +16,12 @@
 //= require app
 //= require theme/bootstrap
 //= require theme/moment.min.js
+//= require angular-calendar
 //= require theme/fullcalendar.min.js
+//= require theme/jquery.metisMenu.js
+//= require theme/jquery.slimscroll.js
+//= require theme/inspinia.js
+//= require theme/pace.min.js
+//= require theme/jquery.peity.min.js
+//= require theme/peity-demo.js
 //= require_tree .
