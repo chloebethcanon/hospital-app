@@ -52,6 +52,175 @@
 
 <%= link_to "Sign Out", "/users/sign_out", method: :delete %>
 
+<div class="row">
+  <div class="col-lg-9">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Striped Table </h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-wrench"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li><a href="#">Config option 1</a>
+            </li>
+            <li><a href="#">Config option 2</a>
+            </li>
+          </ul>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div id="calendar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-wrapper" class="gray-bg">
+  <div class="row border-bottom">
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+      <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        <form role="search" class="navbar-form-custom" action="search_results.html">
+          <div class="form-group">
+            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+          </div>
+        </form>
+      </div>
+    <ul class="nav navbar-top-links navbar-right">
+      <li>
+        <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+          <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+        </a>
+        <ul class="dropdown-menu dropdown-messages">
+          <li>
+            <div class="dropdown-messages-box">
+              <a href="profile.html" class="pull-left">
+                <img alt="image" class="img-circle" src="img/a7.jpg">
+              </a>
+              <div class="media-body">
+                <small class="pull-right">46h ago</small>
+                <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+              </div>
+            </div>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <div class="dropdown-messages-box">
+              <a href="profile.html" class="pull-left">
+                <img alt="image" class="img-circle" src="img/a4.jpg">
+              </a>
+              <div class="media-body ">
+                <small class="pull-right text-navy">5h ago</small>
+                <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+              </div>
+            </div>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <div class="dropdown-messages-box">
+              <a href="profile.html" class="pull-left">
+                <img alt="image" class="img-circle" src="img/profile.jpg">
+              </a>
+              <div class="media-body ">
+                <small class="pull-right">23h ago</small>
+                <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+              </div>
+            </div>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <div class="text-center link-block">
+              <a href="mailbox.html">
+                <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+          <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+        </a>
+        <ul class="dropdown-menu dropdown-alerts">
+          <li>
+            <a href="mailbox.html">
+              <div>
+                <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                <span class="pull-right text-muted small">4 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="profile.html">
+              <div>
+                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                <span class="pull-right text-muted small">12 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="grid_options.html">
+              <div>
+                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                <span class="pull-right text-muted small">4 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <div class="text-center link-block">
+              <a href="notifications.html">
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </li>
+
+
+      <li>
+        <a href="login.html">
+          <i class="fa fa-sign-out"></i> Log out
+        </a>
+      </li>
+    </ul>
+
+    </nav>
+  </div>
+    <div class="row wrapper border-bottom white-bg page-heading">
+      <div class="col-lg-10">
+        <h2>Profile</h2>
+        <ol class="breadcrumb">
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a>Extra Pages</a>
+          </li>
+          <li class="active">
+            <strong>Profile</strong>
+          </li>
+        </ol>
+      </div>
+    <div class="col-lg-2">
+    </div>
+  </div>
 
 
 
@@ -118,74 +287,97 @@
   </div>
 </div>
 
-
-
-
-
-<div class="col-md-8">
-
-  <div class="ibox float-e-margins">
-    <div class="ibox-title">
-
-      <h5>Feed</h5>
-      <div class="ibox-tools">
-        <a class="collapse-link">
-          <i class="fa fa-chevron-up"></i>
-        </a>
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="fa fa-wrench"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-user">
-          <li><a href="#">Config option 1</a>
-          </li>
-          <li><a href="#">Config option 2</a>
-          </li>
-        </ul>
-        <a class="close-link">
-          <i class="fa fa-times"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="ibox-content">
-
-      <div>
-        <div class="feed-activity-list">
-
-          <% @messages.each do |message| %>
-            <div class="feed-element">
-              <a href="#" class="pull-left">
-                <img alt="image" class="img-circle" src="<%= message.sender.avatar_url %>">
-              </a>
-              <div class="media-body ">
-                <small class="pull-right">2h ago</small>
-                <strong><%= message.sender.full_name %></strong> posted a message. <br>
-                <small class="text-muted"><%= message.readable_date %>  •  <%= message.readable_time %></small>
-                <div class="well">
-                  <%= message.body %>
-                </div>
-                <div class="pull-left">
-                  <%= button_to "Delete", "/messages/#{message.id}", class: "btn btn-xs btn-warning", method: :delete %> 
-                </div>
-                <div class="pull-right">
-                  <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                  <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
-                  <a class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Message</a>
+<div id="wrapper">
+  <div class="wrapper wrapper-content">
+    <div class="row animated fadeInRight">
+      <div class="col-md-4">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5><strong><%= current_user.full_name %></strong></h5>
+          </div>
+          <div>
+            <div class="ibox-content no-padding border-left-right">
+              <img alt="image" class="img-responsive" src="<%= current_user.avatar_url %>">
+            </div>
+            <div class="ibox-content profile-content">
+              <h5>
+                  About me
+              </h5>
+              <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+              </p>
+              <div class="user-button">
+                <div class="row">
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
+                  </div>
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> Buy a coffee</button>
+                  </div>
                 </div>
               </div>
             </div>
-          <% end %>
-
+          </div>
         </div>
 
-        <a href="/messages" class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</a>
-
+        <div class="col-md-8">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5>Feed</h5>
+              <div class="ibox-tools">
+                <a class="collapse-link">
+                  <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                  <li><a href="#">Config option 1</a>
+                  </li>
+                  <li><a href="#">Config option 2</a>
+                  </li>
+                </ul>
+                <a class="close-link">
+                  <i class="fa fa-times"></i>
+                </a>
+              </div>
+            </div>
+            <div class="ibox-content">
+              <div>
+                <div class="feed-activity-list">
+                  <% @messages.each do |message| %>
+                    <div class="feed-element">
+                      <a href="#" class="pull-left">
+                        <img alt="image" class="img-circle" src="<%= message.sender.avatar_url %>">
+                      </a>
+                      <div class="media-body ">
+                        <small class="pull-right">2h ago</small>
+                        <strong><%= message.sender.full_name %></strong> posted a message. <br>
+                        <small class="text-muted"><%= message.readable_date %>  •  <%= message.readable_time %></small>
+                        <div class="well">
+                          <%= message.body %>
+                        </div>
+                        <div class="pull-left">
+                          <%= button_to "Delete", "/messages/#{message.id}", class: "btn btn-xs btn-warning", method: :delete %> 
+                        </div>
+                        <div class="pull-right">
+                          <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                          <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
+                          <a class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Message</a>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+                <a href="/messages" class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </div>  
   </div>
 </div>
-
-
 
 
 

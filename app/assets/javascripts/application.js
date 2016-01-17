@@ -15,4 +15,6 @@
 //= require angular
 //= require app
 //= require theme/bootstrap
+//= require theme/moment.min.js
+//= require theme/fullcalendar.min.js
 //= require_tree .
