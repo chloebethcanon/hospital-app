@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 
   def index
     # if current_user.admin
-      @events = Event.all
+      events = Event.all
+      @events = events.order(:date).order(:start_time)
     # else
     #   @events = current_user.events
     # end

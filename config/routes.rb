@@ -54,6 +54,7 @@ Rails.application.routes.draw do
       delete '/messages/:id' => 'messages#destroy'
 
       get '/events' => 'events#index'
+      get '/events/:id' => 'events#show'
     end
   end
 

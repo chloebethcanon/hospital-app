@@ -1,12 +1,13 @@
-/* global angular */
+/* global angular, $ */
 
 (function() {
   angular.module("app").controller("pagesCtrl", function($scope, $http) {
     $scope.setup = function() {
+      $scope.eventSources = {};
 
       $scope.uiConfig = {
         calendar:{
-          height: 150,
+          contentHeight: 200,
           editable: true,
           header:{
             left: 'month basicWeek basicDay agendaWeek agendaDay',
@@ -23,27 +24,20 @@
 
       $http.get('/api/v1/events.json').then(function(response) {
         console.log(response.data);
-        // $scope.events = response.data;
-        // $scope.eventSources.events.splice(0, $scope.eventSources.events.length);
-        $scope.eventSources.events = [{title: 'Test', start: '2016-01-19'}];
-        // $('#calendar').fullCalendar('refetchEvents');
+        $scope.eventSources = {
+          events: response.data.all_events
+          // color: 'yellow',   // an option!
+          // textColor: 'black' // an option!
+        };
+        refreshCalendar();
       });
-      $scope.eventSources = {
-        events: [
-          {
-            title: 'Event1',
-            start: '2016-01-17'
-          },
-          {
-            title: 'Event2',
-            start: '2016-01-19'
-          }
-          // etc...
-        ],
-        color: 'yellow',   // an option!
-        textColor: 'black' // an option!
-      };
     };
+
+    function refreshCalendar() {
+      $('#calendar').fullCalendar('removeEvents');
+      $('#calendar').fullCalendar('addEventSource', $scope.eventSources);
+    }
+
     window.$scope = $scope;
   });
 })();

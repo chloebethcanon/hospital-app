@@ -1144,6 +1144,27 @@ img {
 .img-circle {
   border-radius: 50%;
 }
+
+.img-small {
+  height: 48px;
+  width: 48px;
+}
+
+.img-profile {
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+}
+
+.site-logo {
+  color: #ED5565;
+  -webkit-animation: pulse 2s infinite ease-in-out;
+}
+
+.site-logo-white {
+  -webkit-animation: pulse 2s infinite ease-in-out
+}
+
 hr {
   margin-top: 20px;
   margin-bottom: 20px;

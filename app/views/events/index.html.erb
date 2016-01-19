@@ -1,29 +1,3 @@
-<h1>Events</h1>
-
-<% if current_user && current_user.admin %>
-  <a href="/events/new">Add Event</a>
-<% end %>
-
-<% @events.each do |event| %>
-  <a href="/events/<%= event.id %>">
-    <h3><%= event.title %></h3></a>
-  <h4><%= event.location %></h4>
-  <%= form_tag '/user_events', method: :post do %>
-    <div>
-      <%= hidden_field_tag :event_id, event.id, class: "form-control" %>
-    </div>
-    <div>
-      <% if !event.user_registered?(current_user) %>
-        <%= button_tag "Sign Up!", class: "btn btn_default" %>
-      <% else %>
-        <%= link_to "Unregister", "/user_events/#{event.get_user_event_id(current_user)}", method: :delete, class: "btn btn-warning", role: "button" %>
-      <% end %>    
-    </div>
-  <% end %>
-<% end %>
-
-
-
 
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
@@ -37,11 +11,7 @@
           </div>
           <div class="ibox-content">
             <div class="team-members">
-              <a href="#"><img alt="member" class="img-circle" src="img/a1.jpg"></a>
-              <a href="#"><img alt="member" class="img-circle" src="img/a2.jpg"></a>
-              <a href="#"><img alt="member" class="img-circle" src="img/a3.jpg"></a>
-              <a href="#"><img alt="member" class="img-circle" src="img/a5.jpg"></a>
-              <a href="#"><img alt="member" class="img-circle" src="img/a6.jpg"></a>
+              <a href="#"><img alt="image" class="img-responsive img-profile" src="<%= event.image_url %>"></a>
             </div>
             <div class="row  m-t-sm">
               <div class="col-sm-8">
@@ -83,5 +53,29 @@
         </div>
       </div>
     <% end %>    
-  </div>    
+  </div>   
+
+  <h1>Events</h1>
+
+  <% if current_user && current_user.admin %>
+    <a href="/events/new">Add Event</a>
+  <% end %>
+
+  <% @events.each do |event| %>
+    <a href="/events/<%= event.id %>">
+      <h3><%= event.title %></h3></a>
+    <h4><%= event.location %></h4>
+    <%= form_tag '/user_events', method: :post do %>
+      <div>
+        <%= hidden_field_tag :event_id, event.id, class: "form-control" %>
+      </div>
+      <div>
+        <% if !event.user_registered?(current_user) %>
+          <%= button_tag "Sign Up!", class: "btn btn_default" %>
+        <% else %>
+          <%= link_to "Unregister", "/user_events/#{event.get_user_event_id(current_user)}", method: :delete, class: "btn btn-warning", role: "button" %>
+        <% end %>    
+      </div>
+    <% end %>
+  <% end %> 
 </div>

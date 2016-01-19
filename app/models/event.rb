@@ -35,4 +35,8 @@ class Event < ActiveRecord::Base
       nil
     end
   end
+
+  def is_attending?(user)
+    self.users.exists?(id: current_user.id)
+  end
 end
