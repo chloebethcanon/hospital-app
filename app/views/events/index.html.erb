@@ -23,16 +23,15 @@
             </div>
             <p><%= event.description %></p>
             <div>
-              <span>Status of current project:</span>
-              <div class="stat-percent">48%</div>
+              <span>Capacity:</span>
+              <div class="stat-percent"><%= event.capacity %></div>
               <div class="progress progress-mini">
-                <div style="width: 48%;" class="progress-bar"></div>
+                <div style="<%= event.attendance %>" class="progress-bar"></div>
               </div>
             </div>
             <div class="row  m-t-sm">
               <div class="col-sm-6">
-                <div class="font-bold">CAPACITY</div>
-                <%= event.capacity %>
+                <div class="font-bold"><%= event.spots_left %> spots left!</div>
               </div>
               <div class="col-sm-6 text-right">
                 <%= form_tag '/user_events', method: :post do %>

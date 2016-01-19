@@ -39,4 +39,14 @@ class Event < ActiveRecord::Base
   def is_attending?(user)
     self.users.exists?(id: current_user.id)
   end
+
+  def attendance
+    attendance = (self.users.length.to_f / self.capacity.to_f) * 100
+    @attendance = attendance.to_i
+    return "width: #{@attendance}%;"
+  end
+
+  def spots_left
+    self.capacity - self.users.length
+  end
 end
