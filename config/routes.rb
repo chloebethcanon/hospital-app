@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   get '/' => 'pages#index'
   get '/pages' => 'pages#index'
-
+  get '/calendars' => 'calendars#index'
+ 
   get '/events' => 'events#index'
   get '/events/new' => 'events#new'
   post '/events' => 'events#create'
