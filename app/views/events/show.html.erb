@@ -1,3 +1,130 @@
+<% if current_user.admin && current_user.id == @event.user_id %>
+  <div class="row">
+    <div class="wrapper wrapper-content">
+      <div class="row animated fadeInRight">
+        <div class="col-md-3">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5><strong><%= @event.title %></strong></h5>
+            </div>
+            <div>
+              <div class="ibox-content no-padding border-left-right">
+                <img alt="image" class="img-responsive img-profile" src="<%= @event.image_url %>">
+              </div>
+              <div class="ibox-content profile-content">
+                <h5>
+                    Description
+                </h5>
+                <p>
+                    <%= @event.description %>
+                </p>
+                <div>
+                  <span>Capacity:</span>
+                  <div class="stat-percent"><%= @event.capacity %></div>
+                  <div class="progress progress-mini">
+                    <div style="<%= @event.attendance %>" class="progress-bar"></div>
+                  </div>
+                </div>
+                <div class="row  m-t-sm">
+                  <div class="col-sm-6">
+                    <div class="font-bold"><%= @event.spots_left %> spots left!</div>
+                  </div>
+                </div>
+                <div class="user-button">
+                  <div class="row m-t-sm">
+                    <div class="col-md-6">
+                      <%= button_to "Edit", "/events/#{@event.id}/edit", class: "btn btn-primary btn-sm btn-block", method: :get %>
+                    </div>
+                    <div class="col-md-6">
+                      <%= button_to "Delete", "/events/#{@event.id}", class: "btn btn-warning btn-sm btn-block", method: :delete %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5>Attendees</h5>
+              <div class="ibox-tools">
+                <a class="collapse-link">
+                  <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                  <li><a href="#">Config option 1</a>
+                  </li>
+                  <li><a href="#">Config option 2</a>
+                  </li>
+                </ul>
+                <a class="close-link">
+                  <i class="fa fa-times"></i>
+                </a>
+              </div>
+            </div>
+            <div class="ibox-content">
+              <div class="row">
+                <div class="col-sm-5 m-b-xs"><select class="input-sm form-control input-s-sm inline">
+                  <option value="0">Option 1</option>
+                  <option value="1">Option 2</option>
+                  <option value="2">Option 3</option>
+                  <option value="3">Option 4</option>
+                </select>
+                </div>
+                <div class="col-sm-4 m-b-xs">
+                  <div data-toggle="buttons" class="btn-group">
+                    <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
+                    <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
+                    <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                    <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @event.users.each do |user| %>
+                    <tr>
+                      <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
+                      <td><%= user.full_name %></td>
+                      <td><%= user.phone_number %></td>
+                      <td><%= user.email %></td>
+                    </tr>
+                  <% end %>  
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>  
+
+<% else %>
 <h1><%= @event.title %></h1>
 <ul>
   <li>Date: <%= @event.date %></li>
@@ -35,3 +162,15 @@
 <% end %>
 
 <%= button_to "All Events", "/events", class: "btn btn_default", method: :get %>
+
+<% end %>
+
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+

@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
   end
 
   def is_attending?(user)
-    self.users.exists?(id: current_user.id)
+    self.users.exists?(id: user)
   end
 
   def attendance

@@ -7,6 +7,16 @@ class Api::V1::EventsController < ApplicationController
     @all_services = Service.all
     @managed_services = current_user.managed_services
     @user_services = current_user.services
+
+    @registered_events = []
+    @unregistered_events = []
+    @all_events.each do |event|
+      if event.is_attending?(current_user.id)
+        @registered_events << event
+      else
+        @unregistered_events << event
+      end
+    end
   end
 
   def new

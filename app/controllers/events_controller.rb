@@ -4,6 +4,15 @@ class EventsController < ApplicationController
     # if current_user.admin
       events = Event.all
       @events = events.order(:date).order(:start_time)
+
+
+      # current_events = {}
+      # events.each do |event|
+      #   if event.date > DateTime.now
+      #     current_events.merge(event)
+      #     @events = current_events.order(:date).order(:start_time)
+      #   end
+      # end
     # else
     #   @events = current_user.events
     # end

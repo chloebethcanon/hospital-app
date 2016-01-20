@@ -17,7 +17,7 @@
 .icheckbox_square-green {
     background-position: 0 0;
 }
-.icheckbox_square-green.hover {
+.icheckbox_square-green.hover { 
     background-position: -24px 0;
 }
 .icheckbox_square-green.checked {

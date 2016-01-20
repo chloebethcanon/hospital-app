@@ -24,4 +24,5 @@
 //= require theme/pace.min.js
 //= require theme/jquery.peity.min.js
 //= require theme/peity-demo.js
+//= require theme/icheck.min.js
 //= require_tree .

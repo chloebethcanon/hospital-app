@@ -1,6 +1,8 @@
 
 <div ng-app="app">
   <div ng-controller="messagesCtrl" ng-init="setup()">
+  <div class="wrapper wrapper-content animated fadeInRight">
+
     <% if current_user.is_hospital_staff? %>
       <div class="row">
         <div class="col-lg-12">
@@ -48,7 +50,7 @@
 
           <div class="ibox-content">
 
-            <div>
+            <div class="wrapper wrapper-content animated fadeInRight">
               <div class="feed-activity-list">
 
                 <% @messages.each do |message| %>
@@ -62,6 +64,9 @@
                       <small class="text-muted"><%= message.readable_date %>  •  <%= message.readable_time %></small>
                       <div class="well">
                         <%= message.body %>
+                      </div>
+                      <div class="pull-left">
+                        <%= button_to "Delete", "/messages/#{message.id}", class: "btn btn-xs btn-warning", method: :delete %> 
                       </div>
                       <div class="pull-right">
                         <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
@@ -81,6 +86,7 @@
         </div>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
 

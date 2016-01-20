@@ -42,7 +42,15 @@
         <a href="/calendars"><i class="fa fa-calendar"></i> <span class="nav-label">Calendar</span></a>
       </li>
       <li>
-        <a href="/events"><i class="fa fa-ticket"></i> <span class="nav-label">Events</span></a>
+        <% if current_user && current_user.admin %>
+          <a href="#"><i class="fa fa-ticket"></i> <span class="nav-label">Events</span><span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level collapse">
+            <li><a href="/events">All Events</a></li>
+            <li><a href="/events/new">Add Event</a></li>
+          </ul>
+        <% else %>
+          <a href="/events"><i class="fa fa-ticket"></i> <span class="nav-label">Events</span></a>
+        <% end %>  
       </li>
       <li>
         <a href="/services"><i class="fa fa-user-md"></i> <span class="nav-label">Services</span></a>

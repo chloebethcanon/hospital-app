@@ -1156,6 +1156,17 @@ img {
   padding-top: 10px;
 }
 
+.img-event {
+  height: 220px;
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.event-description {
+  height: 110px;
+}
+
 .site-logo {
   color: #ED5565;
   -webkit-animation: pulse 2s infinite ease-in-out;
