@@ -11,6 +11,12 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def editable_date(date)
+    if date
+      date.strftime("%m/%d/%Y")
+    end
+  end
+
   def readable_time(time)
     if time
       time.strftime("%l:%M %p")

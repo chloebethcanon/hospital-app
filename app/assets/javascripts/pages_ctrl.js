@@ -10,7 +10,7 @@
           contentHeight: 200,
           editable: true,
           header:{
-            left: 'month basicWeek basicDay agendaWeek agendaDay',
+            left: 'basicWeek month',
             center: 'title',
             right: 'today prev,next'
           },
@@ -27,6 +27,10 @@
         $scope.eventSources.push({
           events: response.data.registered_events,
           color: '#AC3270'
+        });
+        $scope.eventSources.push({
+          events: response.data.owned_events,
+          color: '#1C84C6'
         });
         $scope.eventSources.push({
           events: response.data.unregistered_events

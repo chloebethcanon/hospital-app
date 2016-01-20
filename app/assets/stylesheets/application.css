@@ -16,4 +16,7 @@
  *= require font-awesome
  *= require fullcalendar/fullcalendar.css
  *= require iCheck/custom.css
+ *= require summernote/summernote-bs3
+ *= require summernote/summernote
+ *= require datapicker/datepicker3
  */

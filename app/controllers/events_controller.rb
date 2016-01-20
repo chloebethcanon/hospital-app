@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     # if current_user.admin
       events = Event.all
       @events = events.order(:date).order(:start_time)
+      search_attribute = params[:search]
 
 
       # current_events = {}
@@ -19,6 +20,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @event = Event.new
   end
 
   def create
@@ -28,10 +30,10 @@ class EventsController < ApplicationController
       start_time: params[:start_time],
       end_time: params[:end_time],
       location: params[:location],
-      category: params[:category],
       description: params[:description],
       capacity: params[:capacity],
       is_private: params[:is_private],
+      image_url: params[:image_url]
       )
     redirect_to "/events"
   end
@@ -58,10 +60,10 @@ class EventsController < ApplicationController
       start_time: params[:start_time],
       end_time: params[:end_time],
       location: params[:location],
-      category: params[:category],
       description: params[:description],
       capacity: params[:capacity],
-      is_private: params[:is_private]
+      is_private: params[:is_private],
+      image_url: params[:image_url]
       )
       flash[:success] = "Event was successfully updated!"
       redirect_to "/events/#{@event.id}"

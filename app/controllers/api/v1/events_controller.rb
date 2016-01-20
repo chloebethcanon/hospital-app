@@ -3,16 +3,19 @@ class Api::V1::EventsController < ApplicationController
   def index
     @all_events = Event.all
     @user_events = current_user.events
-    @owned_events = current_user.created_events
+    # @owned_events = current_user.created_events
     @all_services = Service.all
     @managed_services = current_user.managed_services
     @user_services = current_user.services
 
+    @owned_events = []
     @registered_events = []
     @unregistered_events = []
     @all_events.each do |event|
       if event.is_attending?(current_user.id)
         @registered_events << event
+      elsif current_user.id == event.user_id
+        @owned_events << event
       else
         @unregistered_events << event
       end
@@ -29,10 +32,10 @@ class Api::V1::EventsController < ApplicationController
       start_time: params[:start_time],
       end_time: params[:end_time],
       location: params[:location],
-      category: params[:category],
       description: params[:description],
       capacity: params[:capacity],
       is_private: params[:is_private],
+      image_url: params[:image_url]
       )
     if @event.save
       render :show
@@ -63,10 +66,10 @@ class Api::V1::EventsController < ApplicationController
       start_time: params[:start_time],
       end_time: params[:end_time],
       location: params[:location],
-      category: params[:category],
       description: params[:description],
       capacity: params[:capacity],
-      is_private: params[:is_private]
+      is_private: params[:is_private],
+      image_url: params[:image_url]
       )
       flash[:success] = "Event was successfully updated!"
       redirect_to "/events/#{@event.id}"
