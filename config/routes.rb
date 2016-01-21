@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   delete '/services/:id' => 'services#destroy'
 
   post '/user_services' => 'user_services#create'
+  post '/user_services_multiple' => 'user_services#create_multiple'
   get '/user_services/:id/edit' => 'user_services#edit'
   patch '/user_services/:id' => 'user_services#update'
   delete '/user_services/:id' => 'user_services#destroy'

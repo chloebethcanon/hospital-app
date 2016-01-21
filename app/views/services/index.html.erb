@@ -4,18 +4,24 @@
   <a href="/services/new">Add Service</a>
 <% end %>
 
-<% @services.each do |service| %>
-  <a href ="/services/<%= service.id %>">
+<%= form_tag '/user_services_multiple', method: :post do %>
+  <% @services.each do |service| %>
+    <a href ="/services/<%= service.id %>">
     <h3><%= service.title %></h3></a>
-  <h4><%= service.description %></h4>
-  <%= form_tag '/user_services', method: :post do %>
+    <h4><%= service.description %></h4>
     <div>
       <%= hidden_field_tag :service_id, service.id, class: "form-control" %>
     </div>
     <div>
-      <%= button_tag "Opt In", class: "btn btn_default" %>
+      <%= check_box_tag "services[]", service.id, current_user.enrolled?(service) %>
+      <%= label_tag "services[]", "Opt in" %>
     </div>
+    <br>
   <% end %>
+  <div>
+    <%= submit_tag "Submit", class: "btn btn-submit" %>
+  </div>
+
 <% end %>    
 
 

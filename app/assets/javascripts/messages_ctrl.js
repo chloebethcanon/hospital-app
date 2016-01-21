@@ -17,6 +17,43 @@
         $scope.received_messages.splice(index, 1);
       });
     };
+    $scope.newMessage = function(inputBody) {
+      var message = {
+        body: inputBody
+      };
+      $http.post('/api/v1/messages.json', message).then(function(response) {
+        console.log(response);
+        $scope.messages.push(message);
+        $scope.newMessageBody = "";
+        $scope.errors = [];
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
+      });
+    };
+
+    $scope.replyMessage = function() {
+      console.log($scope.newMessageBody, $scope.currentReplyMessage);
+      var message = {
+        body: $scope.newMessageBody,
+        subject: "default",
+        email: $scope.currentReplyMessage.sender_email
+      };
+      $http.post('/api/v1/messages.json', message).then(function(response) {
+        console.log(response);
+        $scope.messages.push(response.data);
+        // $scope.newMessageBody = "";
+        $scope.errors = [];
+      }, function(error) {
+        console.log(error);
+        $scope.errors = error.data.errors;
+      });
+    };
+
+    $scope.setCurrentReplyMessage = function(inputMessage) {
+      $scope.currentReplyMessage = inputMessage;
+    };
+    
     window.$scope = $scope;
   });
 })();

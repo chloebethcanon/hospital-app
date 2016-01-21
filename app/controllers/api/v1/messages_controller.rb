@@ -20,11 +20,12 @@ class Api::V1::MessagesController < ApplicationController
       body: params[:body],
       user_id: current_user.id
       )
-    @message_recipient = MessageRecipient.new(
-      message_id: @message.id,
-      user_id: recipient.id
-      )
-    if @message.save && @message_recipient.save
+    if @message.save
+      @message_recipient = MessageRecipient.new(
+        message_id: @message.id,
+        user_id: recipient.id
+        )
+      @message_recipient.save
       render :show
     else
       render json: { message_errors: @message.errors.full_messages, 

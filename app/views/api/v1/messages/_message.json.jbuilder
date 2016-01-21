@@ -5,3 +5,6 @@ json.sender_full_name message.sender.full_name
 json.sender_id message.sender.id
 json.readable_date message.readable_date
 json.readable_time message.readable_time
+json.sender_avatar_url message.sender.avatar_url
+json.sender_email message.sender.email
+json.created_at message.created_at

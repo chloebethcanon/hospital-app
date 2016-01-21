@@ -23,5 +23,10 @@ class User < ActiveRecord::Base
   def is_hospital_staff?
     self.roles.exists?(2)
   end
+
+  def enrolled?(service)
+    puts services
+    services.include?(service)
+  end
   
 end
