@@ -90,7 +90,7 @@
 
               <div>
                 <div class="feed-activity-list">
-                  <div class="feed-element" ng-repeat="message in messages | orderBy: '-created_at' : sortDescending | limitTo:quantity">
+                  <div class="feed-element" ng-repeat="message in messages | limitTo:quantity | orderBy: '-created_at' : sortDescending">
                     <a href="#" class="pull-left">
                       <img alt="image" class="img-circle" src="{{ message.sender_avatar_url }}">
                     </a>
