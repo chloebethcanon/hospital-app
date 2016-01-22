@@ -2,16 +2,25 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+    @all_users = User.all
+
+    @patients = []
+    @all_users.each do |user|
+      if user.roles.exists?(1)
+        @patients << user
+      end
+    end
   end
 
   def new
+    @service = Service.new
   end
 
   def create
     @service = Service.create(
       title: params[:title],
-      category: params[:category],
-      description: params[:description]
+      description: params[:description],
+      user_id: current_user.id
       )
     redirect_to "/services"
   end
@@ -25,6 +34,16 @@ class ServicesController < ApplicationController
     else
       @current_user_opt_in = false
     end
+
+    @all_users = User.all
+
+    @patients = []
+    @all_users.each do |user|
+      if user.roles.exists?(1)
+        @patients << user
+      end
+    end
+
   end
 
   def edit
@@ -48,6 +67,7 @@ class ServicesController < ApplicationController
   def destroy
     @service = Service.find_by(id: params[:id])
     @service.delete
+    UserService.where(service_id: params[:id]).destroy_all
     flash[:success] = "Service was successfully deleted!"
     redirect_to "/services"
   end

@@ -33,7 +33,8 @@ class EventsController < ApplicationController
       description: params[:description],
       capacity: params[:capacity],
       is_private: params[:is_private],
-      image_url: params[:image_url]
+      image_url: params[:image_url],
+      user_id: current_user.id
       )
     redirect_to "/events"
   end

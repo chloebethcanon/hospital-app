@@ -1,3 +1,8 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Messages</h2>
+  </div>
+</div>
 
 <div ng-app="app">
   <div ng-controller="messagesCtrl" ng-init="setup()">
@@ -13,7 +18,8 @@
                     <small>{{ received_message.readable_date }}  •  {{ received_message.readable_time }}</small>
                     <h4>{{ received_message.sender_full_name }}</h4>
                     <p>{{ received_message.body }}</p>
-                    <a ng-click="deleteMessage(received_message)" href="javascript:void(0)"><i class="fa fa-trash-o "></i></a>
+                    <a ng-click="setCurrentReplyMessage(received_message)" class="inmodal" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i></a>
+                    <a ng-click="deleteMessage(received_message)" href="javascript:void(0)" style="right:30px !important"><i class="fa fa-trash-o"></i></a>
                   </div>
                 </li>
             </ul>
@@ -22,56 +28,77 @@
       </div>
 
     <% else %>
-
-      <div class="col-md-8">
-
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-
-            <h5>Feed</h5>
-            <div class="ibox-tools">
-              <a class="collapse-link">
-                <i class="fa fa-chevron-up"></i>
-              </a>
-              <a class="close-link">
-                <i class="fa fa-times"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="ibox-content">
-
-            <div class="wrapper wrapper-content animated fadeInRight">
-              <div class="feed-activity-list">
-
-                <% @messages.each do |message| %>
-                  <div class="feed-element">
-                    <a href="#" class="pull-left">
-                      <img alt="image" class="img-circle" src="<%= message.sender.avatar_url %>">
+      <div class="row">
+        <div class="wrapper wrapper-content">
+          <div class="row animated fadeInRight">
+            <div class="col-md-8">
+              <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                  <h5>Feed</h5>
+                  <div class="ibox-tools">
+                    <a class="collapse-link">
+                      <i class="fa fa-chevron-up"></i>
                     </a>
-                    <div class="media-body ">
-                      <strong><%= message.sender.full_name %></strong> posted a message. <br>
-                      <small class="text-muted"><%= message.readable_date %>  •  <%= message.readable_time %></small>
-                      <div class="well">
-                        <%= message.body %>
-                      </div>
-                      <div class="pull-left">
-                        <%= button_to "Delete", "/messages/#{message.id}", class: "btn btn-xs btn-warning", method: :delete %> 
-                      </div>
-                      <div class="pull-right">
-                        <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                        <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
-                        <a class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Message</a>
+                    <a class="close-link">
+                      <i class="fa fa-times"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="ibox-content">
+                  <div class="feed-activity-list">
+                    <div class="feed-element" ng-repeat="message in messages | orderBy: '-created_at' : sortDescending">
+                      <a href="#" class="pull-left">
+                        <img alt="image" class="img-circle" src="{{ message.sender_avatar_url }}">
+                      </a>
+                      <div class="media-body ">
+                        <strong>{{ message.sender_full_name }}</strong> posted a message. <br>
+                        <small class="text-muted">{{ message.readable_date }}  •  {{ message.readable_time }}</small>
+                        <div class="well">
+                          {{ message.body }}
+                        </div>
+                        <div class="pull-left">
+                        </div>
+                        <div class="pull-right">
+                          <a ng-click="deleteMessage2(message)" href="javascript:void(0)" class="btn btn-xs btn-white"><i class="fa fa-trash-o"></i> Delete</a>
+                          <a ng-click="setCurrentReplyMessage(message)" class="btn btn-xs btn-primary inmodal" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i> Reply</a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+<!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><i class="fa fa-comments modal-icon"></i>  New Message!!!</h4>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <input ng-model="newMessageBody" class="form-control" id="modalMessageBody" placeholder="Message">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="replyMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
   </div>
 </div>
+
+
 
 

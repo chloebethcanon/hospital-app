@@ -17,6 +17,13 @@
         $scope.received_messages.splice(index, 1);
       });
     };
+     $scope.deleteMessage2 = function(inputMessage) {
+      $http.delete('/api/v1/messages/' + inputMessage.id).then(function(response) {
+        console.log(response);
+        var index = $scope.messages.indexOf(inputMessage);
+        $scope.messages.splice(index, 1);
+      });
+    };
     $scope.newMessage = function(inputBody) {
       var message = {
         body: inputBody
@@ -42,7 +49,7 @@
       $http.post('/api/v1/messages.json', message).then(function(response) {
         console.log(response);
         $scope.messages.push(response.data);
-        // $scope.newMessageBody = "";
+        $scope.newMessageBody = "";
         $scope.errors = [];
       }, function(error) {
         console.log(error);
@@ -52,6 +59,7 @@
 
     $scope.setCurrentReplyMessage = function(inputMessage) {
       $scope.currentReplyMessage = inputMessage;
+      console.log('setCurrentReplyMessage', inputMessage);
     };
     
     window.$scope = $scope;

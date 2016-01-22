@@ -43,6 +43,7 @@
         $scope.received_messages = response.data.received_messages;
         $scope.sent_messages = response.data.sent_messages;
       });
+      $scope.quantity = 3;
     };
 
     $scope.deleteMessage = function(inputMessage) {

@@ -1,3 +1,9 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Events</h2>
+  </div>
+</div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <% @events.each do |event| %>
@@ -54,28 +60,4 @@
       <% end %>
     <% end %>    
   </div>   
-
-  <h1>Events</h1>
-
-  <% if current_user && current_user.admin %>
-    <a href="/events/new">Add Event</a>
-  <% end %>
-
-  <% @events.each do |event| %>
-    <a href="/events/<%= event.id %>">
-      <h3><%= event.title %></h3></a>
-    <h4><%= event.location %></h4>
-    <%= form_tag '/user_events', method: :post do %>
-      <div>
-        <%= hidden_field_tag :event_id, event.id, class: "form-control" %>
-      </div>
-      <div>
-        <% if !event.user_registered?(current_user) %>
-          <%= button_tag "Sign Up!", class: "btn btn_default" %>
-        <% else %>
-          <%= link_to "Unregister", "/user_events/#{event.get_user_event_id(current_user)}", method: :delete, class: "btn btn-warning", role: "button" %>
-        <% end %>    
-      </div>
-    <% end %>
-  <% end %> 
 </div>
